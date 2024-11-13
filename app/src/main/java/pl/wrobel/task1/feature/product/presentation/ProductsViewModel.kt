@@ -19,6 +19,11 @@ class ProductsViewModel @Inject constructor(
     private val updateProductUseCase: UpdateProductUseCase,
 ) : BaseViewModel<State, Event>() {
     override fun setInitialState(): State = State.Empty
+
+    init {
+        load()
+    }
+
     private fun load() {
         getProductsUseCase(Unit, scope = viewModelScope) { result ->
             result.onSuccess {
