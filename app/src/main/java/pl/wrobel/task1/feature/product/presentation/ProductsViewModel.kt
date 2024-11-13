@@ -36,6 +36,7 @@ class ProductsViewModel @Inject constructor(
         when (event) {
             is Event.Load -> load()
             is Event.ChangeQuantity -> changeQuantity(event.product, event.valueChange)
+            is Event.NavigateDetails -> TODO()
         }
     }
 

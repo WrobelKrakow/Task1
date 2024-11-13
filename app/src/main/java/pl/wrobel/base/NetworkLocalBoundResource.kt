@@ -42,5 +42,4 @@ inline fun <DB, REMOTE> networkLocalBoundResource(
     }
 }
 
-@Suppress("BlockingMethodInNonBlockingContext")
 suspend fun ResponseBody.stringSuspending(): String = withContext(Dispatchers.IO) { string() }

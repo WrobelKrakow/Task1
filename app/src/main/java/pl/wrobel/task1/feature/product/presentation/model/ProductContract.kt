@@ -13,5 +13,6 @@ class ProductContract {
     sealed class Event : ViewEvent {
         data object Load : Event()
         data class ChangeQuantity(val product: ProductDisplayable, val valueChange: Int) : Event()
+        data class NavigateDetails(val product: ProductDisplayable) : Event()
     }
 }

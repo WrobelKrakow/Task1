@@ -1,9 +1,10 @@
 package pl.wrobel.base.data.local
 
 import android.content.Context
+import com.google.gson.Gson
 import dagger.hilt.android.qualifiers.ApplicationContext
-import pl.wrobel.base.data.getListFromJson
 import pl.wrobel.task1.feature.product.data.remote.model.ProductRemote
+import java.io.InputStreamReader
 import javax.inject.Inject
 
 class LocalJsonDataProvider @Inject constructor(@ApplicationContext val context: Context) {
@@ -15,3 +16,8 @@ class LocalJsonDataProvider @Inject constructor(@ApplicationContext val context:
 
     }
 }
+
+inline fun <reified T> getListFromJson(context: Context, fileName: String): List<T> = Gson().fromJson(
+    InputStreamReader(context.assets.open(fileName)),
+    arrayOf<T>()::class.java,
+).toList()
