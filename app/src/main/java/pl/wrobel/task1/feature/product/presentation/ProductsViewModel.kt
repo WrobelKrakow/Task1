@@ -46,7 +46,7 @@ class ProductsViewModel @Inject constructor(
     }
 
     private fun changeQuantity(product: ProductDisplayable, valueChange: Int) {
-        updateProductUseCase.invoke(product.product.copy(quantity = product.product.quantity + valueChange), scope = viewModelScope)
+        updateProductUseCase.invoke(Pair(product.product, valueChange), scope = viewModelScope)
     }
 
 }
